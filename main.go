@@ -19,7 +19,10 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	fmt.Println(<-c)
+	// cannot use for range to loop through as we are not going to use the link parameter inside the loop
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 func checkLink(link string, c chan string) {
