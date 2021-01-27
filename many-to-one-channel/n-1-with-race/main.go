@@ -29,8 +29,8 @@ func main() {
 	}()
 
 	go func() {
-		wg.Wait()
-		close(c)
+		wg.Wait() // WAITING FOR wg TO FINISH (I.E. wg.Done())
+		close(c)  // ONCE WG FINISHES, CLOSE THE CHANNEL.
 	}()
 
 	for n := range c {
